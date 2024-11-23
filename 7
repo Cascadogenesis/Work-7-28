@@ -30,9 +30,7 @@ public class StringUtilsCamel {
     }
 
     public static void main(String[] args) {
-        String testString = "my camel * case string 1";
-        String expectedOutput = "myCamelCaseString";
-        String result = StringUtilsCamel.toCamelCase(testString);
-        System.out.println("Строка \"" + testString + "\" должна преобразоваться в " + expectedOutput + " - " + result);
+        	System.out.println("Строка \"my camel * case string 1\" должна преобразоваться в myCamelCaseString - "
+			+ StringUtilsCamel.toCamelCase("my camel * case string 1"));
     }
 }
