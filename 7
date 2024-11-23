@@ -1,0 +1,38 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class StringUtilsCamel {
+    public static String toCamelCase(String input) {
+        if (input == null || input.isEmpty()) {
+            return "";
+        }
+
+        input = input.replaceAll("[^a-zA-Z\\s]", "");
+        String[] words = input.split("\\s+");
+        if (words.length == 0) {
+            return "";
+        }
+
+        StringBuilder camelCaseString = new StringBuilder(words[0].toLowerCase());
+        for (int i = 1; i < words.length; i++) {
+            String word = words[i];
+            if (!word.isEmpty()) {
+                camelCaseString.append(word.substring(0, 1).toUpperCase())
+                               .append(word.substring(1).toLowerCase());
+            }
+        }
+
+        return camelCaseString.toString();
+    }
+
+    private StringUtilsCamel() {
+    
+    }
+
+    public static void main(String[] args) {
+        String testString = "my camel * case string 1";
+        String expectedOutput = "myCamelCaseString";
+        String result = StringUtilsCamel.toCamelCase(testString);
+        System.out.println("Строка \"" + testString + "\" должна преобразоваться в " + expectedOutput + " - " + result);
+    }
+}
